@@ -1,28 +1,17 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{fragments/main_layout}" >
 <head>
-<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    
-	<title>Cinema demo</title>
+	<title>Index Page</title>
 </head>
-
 <body>
 
-<div class="container">
-
-		</br></br></br>
-		
-		<a th:href="@{/movies/list}"
-		class="btn btn-primary btn-sm mb-3">
-		Filmy
-		</a>
+<div  layout:fragment="content" class="container">
+	<h1>Vítejte na stránkách kina</h1>
+	<div class="jumbotron">
+		<p>Vítejte na webových stránkách kina</p>
+	</div>
 </div>
 </body>
-
 </html>

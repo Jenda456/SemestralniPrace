@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/main_layout}"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Employee Directory</title>
+</head>
+
+<body>
+
+<div class="container" layout:fragment="content">
+
+    <h3>Detail filmu</h3>
+    <hr>
+
+    <a th:href="@{/movies/list}">Zpátky na seznam uživatelů</a>
+
+
+    <h2 th:text="${movie.name}"></h2>
+    <h6>Popis:</h6>
+    <p th:text="${movie.description}"></p>
+    <h6>Délka filmu:</h6>
+    <p th:text="${movie.length}"></p>
+
+    <h6>odkaz:</h6>
+    <p th:text="${movie.url_video}"></p>
+
+    <iframe width="640" height="360" th:src="@{https://www.youtube.com/embed/{url} (url=${movie.url_video})}"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+
+    <hr>
+
+</div>
+
+</body>
+</html>
+
+
+

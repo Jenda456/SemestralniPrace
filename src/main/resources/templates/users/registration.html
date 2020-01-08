@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	  layout:decorate="~{fragments/main_layout}"
+	  xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Registrace</title>
+</head>
+
+<body>
+
+	<div class="container" layout:fragment="content" >
+		<hr>
+		<h3>Registrace</h3>
+
+		<form action="#" th:action="@{/registration}"
+						 th:object="${user}" method="POST">
+
+			<input type="text" th:field="*{firstName}"
+					class="form-control mb-4 col-4" placeholder="Jméno">
+
+			<input type="text" th:field="*{lastName}"
+					class="form-control mb-4 col-4" placeholder="Přijmení">
+
+			<input type="email" th:field="*{email}"
+					class="form-control mb-4 col-4" placeholder="email">
+
+			<input type="password" th:field="*{password}"
+				   class="form-control mb-4 col-4" placeholder="heslo">
+
+			<button type="submit" class="btn btn-info col-2">Registrovat</button>
+
+		</form>
+	
+		<hr>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

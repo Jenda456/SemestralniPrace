@@ -9,8 +9,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String sayHello(Model theModel) {
-		
-	
+
 		return "main";
 	}
 }

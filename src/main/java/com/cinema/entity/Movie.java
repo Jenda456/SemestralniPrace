@@ -17,18 +17,28 @@ public class Movie {
 		private int id;
 	    private String name;
 	    private String description;
+		private String url_video;
 	    private int length;
 
 	    public Movie() {}
-	    
 
-		public Movie(String name, String description, int length) {			
+
+
+	public Movie(String name, String description, int length, String url_video) {
 			this.name = name;
 			this.description = description;
 			this.length = length;
+			this.url_video = url_video;
 		}
 
 
+	public String getUrl_video() {
+		return url_video;
+	}
+
+	public void setUrl_video(String url_video) {
+		this.url_video = url_video;
+	}
 		public int getId() {
 			return id;
 		}

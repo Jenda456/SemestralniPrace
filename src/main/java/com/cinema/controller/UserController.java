@@ -44,7 +44,7 @@ public class UserController {
     public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel) {
 
         //Movie movie = movieService.findById(theId);
-        User user = new User(1,"Jan","Novak","email@adad.com");
+        User user = userService.findById(theId);
         theModel.addAttribute("user", user);
 
         return "users/user-form";

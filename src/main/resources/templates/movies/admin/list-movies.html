@@ -50,12 +50,10 @@
                    class="btn btn-info btn-sm">
                     Upravit
                 </a>
-            </td>
-            <td>
 
                 <a th:href="@{delete(movieId=${movie.id})}"
                    class="btn btn-danger btn-sm"
-                   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                   onclick="if (!(confirm('Opravdu odstranit film?'))) return false">
                     Odstranit
                 </a>
 

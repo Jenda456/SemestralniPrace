@@ -5,8 +5,11 @@ import com.cinema.dao.UserRepository;
 
 import com.cinema.entity.User;
 import com.cinema.entity.UserDto;
+import com.cinema.exceptions.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,9 +20,12 @@ public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
 
+	private  PasswordEncoder passwordEncoder;
+
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository) {
+	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 	
 	@Override
@@ -28,8 +34,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User registerNewAccount(UserDto userDto) {
-		return new User();
+	public User registerNewUserAccount(UserDto accountDto) throws EmailExistsException {
+
+		if (emailExists(accountDto.getEmail())) {
+			throw new EmailExistsException("There is an account with that email address:  + accountDto.getEmail()");
+		}
+		User user = new User();
+		user.setFirstName(accountDto.getFirstName());
+		user.setLastName(accountDto.getLastName());
+		user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
+		user.setEmail(accountDto.getEmail());
+		user.setRole("USER");
+		return userRepository.save(user);
+	}
+	private boolean emailExists(String email) {
+		String emailA = userRepository.findEmail(email);
+		if (emailA != null) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override

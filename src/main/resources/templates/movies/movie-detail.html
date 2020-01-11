@@ -14,8 +14,25 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Employee Directory</title>
-</head>
 
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        window.onload = function() {
+            let d = new Date();
+            const dayAfter = d.getDate() + 3 + ". " + (d.getMonth() + 1) +". ";
+            const dayAfter2 = d.getDate() + 4 + ". " + (d.getMonth() + 1) +". ";
+            const dayAfter3 = d.getDate() + 5 + ". " + (d.getMonth() + 1) +". ";
+
+            document.getElementById("dayAfter").innerHTML =  dayAfter;
+            document.getElementById("dayAfter2").innerHTML = dayAfter2;
+            document.getElementById("dayAfter3").innerHTML = dayAfter3;
+        };
+
+
+        /*]]>*/
+    </script>
+</head>
 <body>
 
 <div class="container" layout:fragment="content">
@@ -42,7 +59,48 @@
 
     <hr>
 
+
+    <h4>Program</h4>
+    <table class="table">
+
+        <tbody>
+        <tr>
+            <th scope="row">Dnes</th>
+            <td><a>16:35</a></td>
+        </tr>
+        <tr>
+            <th scope="row">Zítra</th>
+            <td><a href="#">16:35</a></td>
+            <td><a href="#">18:35</a></td>
+            <td><a href="#">19:35</a></td>
+            <td><a href="#">16:35</a></td>
+            <td><a href="#">24:35</a></td>
+        </tr>
+        <tr>
+            <th scope="row">Pozítří</th>
+            <td><a href="#">16:35</a></td>
+        </tr>
+        <tr>
+            <th scope="row"><p id="dayAfter"></p> </th>
+            <td><a href="#">16:35</a></td>
+            <td><a href="#">16:35</a></td>
+        </tr>
+        <tr>
+            <th scope="row"><p id="dayAfter2"></p></th>
+            <td><a href="#">16:35</a></td>
+        </tr>
+        <tr>
+            <th scope="row"><p id="dayAfter3"></p></th>
+            <td><a href="#">16:35</a></td>
+            <td><a href="#">16:35</a></td>
+            <td><a href="#">16:35</a></td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
+
+
 
 </body>
 </html>

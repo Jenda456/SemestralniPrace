@@ -1,3 +1,15 @@
 .container{
     margin-top: 2em;
 }
+
+.background {
+    background-image: url('../static/img/background.jpg');
+}
+
+.bgImgCenter{
+    background-color: aqua;
+    background-image: url('../static/img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
